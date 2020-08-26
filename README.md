@@ -1,6 +1,6 @@
-#Readme
+# Readme
 
-###Face Detector
+### Face Detector
 Requirements:
 * OpenCV (>= 3.3)
 
