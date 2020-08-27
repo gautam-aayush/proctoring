@@ -13,7 +13,7 @@ class BoundingBox(object):
         self.y_right_top = y_right_top
         self.confidence = confidence
 
-    def get_box(self):
+    def get_box_coordinates(self):
         return self.x_left_bottom, self.y_left_bottom, self.x_right_top, self.y_right_top
 
 

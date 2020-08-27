@@ -1,7 +1,7 @@
 import cv2
 import time
 
-from FaceDetector import FaceDetector
+from face_detector import FaceDetector
 
 PROTOTXT_PATH = 'models/face_detector/deploy.prototxt'
 MODEL_PATH = 'models/face_detector/res10_300x300_ssd_iter_140000_fp16.caffemodel'
@@ -34,7 +34,7 @@ def run_face_detection_image(img_path):
 
 
 if __name__ == '__main__':
-    run_face_detection_on_webcam(3)
+    # run_face_detection_on_webcam(3)
     # run_face_detection_on_webcam('data/video/video_1.mp4')
-    # run_face_detection_image('data/multiple_faces/img_3.webp')
+    run_face_detection_image('data/multiple_faces/img_3.webp')
     # crop_faces('data/multiple_faces/img_3.webp')
