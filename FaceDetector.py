@@ -19,7 +19,7 @@ class BoundingBox(object):
 
 class FaceDetector(object):
     """
-    Wrapper for detecting a faces in an image or video stream using
+    Wrapper for detecting faces in an image or video stream using
     a pretrained SSD Caffe model available in:
     https://github.com/opencv/opencv/tree/master/samples/dnn/face_detector
     Documented in:
@@ -64,6 +64,14 @@ class FaceDetector(object):
                 box = (detections[0,0,i,3:7] * np.array([img_width, img_height, img_width, img_height])).astype(int)
                 bounding_boxes.append(BoundingBox(*box, confidence))
         return bounding_boxes
+
+    def get_cropped_faces(self, image):
+        cropped_faces = []
+        bounding_boxes = self.get_bounding_boxes(image)
+        for box in bounding_boxes:
+            face = image[box.y_left_bottom: box.y_right_top, box.x_left_bottom:box.x_right_top]
+            cropped_faces.append(face)
+        return cropped_faces
 
     def detect_faces_from_image(self, image, wait=True):
         """
